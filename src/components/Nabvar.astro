@@ -6,40 +6,66 @@
         <li>
           <a href="#products" class="text-base font-semibold hover:text-[#E67817]">Productos</a>
         </li>
-        <li class="flex justify-center items-center gap-1">
-          <a href="#categories" class="text-base font-semibold hover:text-[#E67817]">Categorias</a>
-          <a href="#" class="hover:text-[#E67817]">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <!-- Contenedor para el menú desplegable de categorías -->
+        <li class="relative group">
+          <div class="flex items-center gap-1">
+            <a href="#categories" class="text-base font-semibold hover:text-[#E67817]">Categorías</a>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-700">
               <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
             </svg>
-          </a>
+          </div>
+          <!-- Menú desplegable -->
+          <ul class="absolute hidden group-hover:flex flex-col bg-white shadow-lg p-2 top-5 w-40 rounded">
+            <li><a href="#category1" class="block px-4 py-2 text-sm hover:bg-gray-200">Categoría 1</a></li>
+            <li><a href="#category2" class="block px-4 py-2 text-sm hover:bg-gray-200">Categoría 2</a></li>
+            <li><a href="#category3" class="block px-4 py-2 text-sm hover:bg-gray-200">Categoría 3</a></li>
+            <li><a href="#category4" class="block px-4 py-2 text-sm hover:bg-gray-200">Categoría 4</a></li>
+          </ul>
         </li>
-        <li>
-          <a href="#contact" class="text-base font-semibold hover:text-[#E67817]">Contacto</a>
-        </li>
-        <li>
-          <a href="#about" class="text-base font-semibold hover:text-[#E67817]">Acerca de</a>
-        </li>
+        <li><a href="#contact" class="text-base font-semibold hover:text-[#E67817]">Contacto</a></li>
+        <li><a href="#about" class="text-base font-semibold hover:text-[#E67817]">Acerca de</a></li>
       </ol>
     </div>
     <a href="#products" class="text-base font-semibold w-52 h-12 border-2 border-[#E67817] rounded-lg text-center flex justify-center items-center max-sm:hidden">Productos populares</a>
     <a href="#" class="sm:block md:hidden" id="menuButton">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25"></path>
       </svg>
     </a>
   </nav>
 </header>
 
-<!-- Modal -->
-<div id="mobileModal" class="sm:hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+
+
+<!-- Modal para vista móvil -->
+<div
+  id="mobileModal"
+  class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+>
   <div class="bg-white rounded-lg w-44 p-5 text-center shadow">
-    <button id="closeModal" class="text-gray-500 hover:text-gray-800 text-xl font-bold">&times;</button>
+    <button
+      id="closeModal"
+      class="text-gray-500 hover:text-gray-800 text-xl font-bold"
+      >&times;</button
+    >
     <ol class="flex flex-col gap-4 mt-4">
-      <li><a href="#products" class="text-base font-semibold hover:text-[#E67817]">Productos</a></li>
-      <li><a href="#categories" class="text-base font-semibold hover:text-[#E67817]">Categorias</a></li>
-      <li><a href="#contact" class="text-base font-semibold hover:text-[#E67817]">Contacto</a></li>
-      <li><a href="#about" class="text-base font-semibold hover:text-[#E67817]">Acerca de</a></li>
+      <li>
+        <a href="#products" class="text-base font-semibold hover:text-[#E67817]"
+          >Productos</a>
+      </li>
+      <li>
+        <a
+          href="#categories"
+          class="text-base font-semibold hover:text-[#E67817]">Categorias</a>
+      </li>
+      <li>
+        <a href="#contact" class="text-base font-semibold hover:text-[#E67817]"
+          >Contacto</a>
+      </li>
+      <li>
+        <a href="#about" class="text-base font-semibold hover:text-[#E67817]"
+          >Acerca de</a>
+      </li>
     </ol>
   </div>
 </div>
@@ -56,22 +82,31 @@
       }
     }
 
+    // Abre el modal cuando se hace clic en el botón del menú
     if (menuButton) {
-      menuButton.addEventListener("click", toggleModal);
+      menuButton.addEventListener("click", (event) => {
+        event.preventDefault(); // Evita que el enlace se recargue
+        toggleModal();
+      });
     }
 
+    // Cierra el modal cuando se hace clic en el botón de cerrar
     if (closeModalButton) {
       closeModalButton.addEventListener("click", toggleModal);
     }
 
-    // Cierra la modal al hacer clic fuera del contenido de la modal
+    // Cierra el modal al hacer clic fuera del contenido del modal
     window.addEventListener("click", function (event) {
-      if (modal && event.target === modal) {
+      if (
+        modal &&
+        !modal.classList.contains("hidden") &&
+        event.target === modal
+      ) {
         toggleModal();
       }
     });
 
-    // Cierra la modal al hacer clic en cualquier enlace dentro de la modal
+    // Cierra el modal al hacer clic en cualquier enlace dentro del modal
     const modalLinks = modal ? modal.querySelectorAll("a") : [];
     modalLinks.forEach((link) => {
       link.addEventListener("click", toggleModal);
