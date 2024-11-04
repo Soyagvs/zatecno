@@ -1,61 +1,69 @@
 ---
 import CardProducts from "@/CardProducts.astro";
+import LayoutCategories from "layouts/LayoutCategories.astro";
 ---
 
-<section class="max-sm:h-auto mt-10" id="products">
-  <div class="max-w-[1024px] mx-auto max-sm:mb-16">
-    <div class="flex justify-start items-center gap-3">
-      <a href="/#categories" class="flex justify-start items-center gap-2 font-thin max-sm:pl-10" id="text-line"
-        ><svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="size-6"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"></path>
-        </svg>
-        Volver atras
-      </a>
+<LayoutCategories title="Categories">
+  <section class="h-auto mt-10 mb-20" id="products">
+    <div class="max-w-[1024px] mx-auto">
+      <div class="flex justify-start items-center gap-3">
+        <a
+          href="/#categories"
+          class="flex justify-start items-center gap-2 font-thin max-sm:pl-10"
+          id="text-line"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"></path>
+          </svg>
+          Volver atras
+        </a>
+      </div>
+      <h2 class="text-2xl font-semibold text-[#E67817] max-sm:pl-10">
+        Productos populares
+      </h2>
+      <div
+        class="flex flex-wrap max-sm:flex-col justify-center items-center gap-8 mt-12"
+      >
+        <CardProducts>
+          <img src="/img-1.jpg" alt="" class="w-80 h-56 rounded-xl" />
+          <p class="mt-7">Consumos</p>
+        </CardProducts>
+        <CardProducts>
+          <img src="/img-1.jpg" alt="" class="w-80 h-56 rounded-xl" />
+          <p class="mt-7">Consumos</p>
+        </CardProducts>
+        <CardProducts>
+          <img src="/img-1.jpg" alt="" class="w-80 h-56 rounded-xl" />
+          <p class="mt-7">Consumos</p>
+        </CardProducts>
+        <CardProducts>
+          <img src="/img-1.jpg" alt="" class="w-80 h-56 rounded-xl" />
+          <p class="mt-7">Consumos</p>
+        </CardProducts>
+        <CardProducts>
+          <img src="/img-1.jpg" alt="" class="w-80 h-56 rounded-xl" />
+          <p class="mt-7">Consumos</p>
+        </CardProducts>
+        <CardProducts>
+          <img src="/img-1.jpg" alt="" class="w-80 h-56 rounded-xl" />
+          <p class="mt-7">Consumos</p>
+        </CardProducts>
+      </div>
     </div>
-    <h2 class="text-2xl font-semibold text-[#E67817] max-sm:pl-10">
-      Productos populares
-    </h2>
-    <div class="flex flex-wrap justify-center items-center mx-auto gap-8 mt-12">
-      <CardProducts>
-        <img src="/img-1.jpg" alt="" class="w-80 h-56 rounded-xl" />
-        <p class="mt-7">Consumos</p>
-      </CardProducts>
-      <CardProducts>
-        <img src="/img-1.jpg" alt="" class="w-80 h-56 rounded-xl" />
-        <p class="mt-7">Consumos</p>
-      </CardProducts>
-      <CardProducts>
-        <img src="/img-1.jpg" alt="" class="w-80 h-56 rounded-xl" />
-        <p class="mt-7">Consumos</p>
-      </CardProducts>
-      <CardProducts>
-        <img src="/img-1.jpg" alt="" class="w-80 h-56 rounded-xl" />
-        <p class="mt-7">Consumos</p>
-      </CardProducts>
-      <CardProducts>
-        <img src="/img-1.jpg" alt="" class="w-80 h-56 rounded-xl" />
-        <p class="mt-7">Consumos</p>
-      </CardProducts>
-      <CardProducts>
-        <img src="/img-1.jpg" alt="" class="w-80 h-56 rounded-xl" />
-        <p class="mt-7">Consumos</p>
-      </CardProducts>
-    </div>
-  </div>
-</section>
+  </section>
+</LayoutCategories>
 <style>
-    #text-line{
-        text-decoration: underline;
-        color: gray;
-    }
+  #text-line {
+    text-decoration: underline;
+    color: gray;
+  }
 </style>

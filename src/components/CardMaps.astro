@@ -2,6 +2,17 @@
 
 ---
 
-<div class="w-72 h-40 flex flex-col mt-5 items-center">
+<div class="w-72 h-40 flex flex-col mt-5 items-center bord">
   <slot />
 </div>
+
+<style>
+  @media (width <= 390px) {
+    .bord:nth-child(1) {
+      border-bottom: 1px solid white;
+    }
+    .bord:nth-child(2) {
+      border-bottom: 1px solid white;
+    }
+  }
+</style>
