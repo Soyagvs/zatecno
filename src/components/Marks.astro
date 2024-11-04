@@ -1,0 +1,47 @@
+<section class="scrolling-container max-w-[1024px] mx-auto">
+  <div class="scrolling-images">
+    <img src="/roll-1.jpg" alt="Marks" />
+    <img src="/roll-2.jpg" alt="Marks" />
+    <img src="/roll-1.jpg" alt="Marks duplicada" />
+    <img src="/roll-2.jpg" alt="Marks duplicada" />
+  </div>
+</section>
+
+<style>
+  .scrolling-container {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  .scrolling-images {
+    display: inline-flex;
+    animation: scroll 10s linear infinite;
+  }
+
+  .scrolling-images img {
+    width: auto;
+    height: 200px;
+    margin-right: 10px;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .scrolling-images {
+      animation: scroll 15s linear infinite;
+    }
+
+    .scrolling-images img {
+      height: 100px;
+      margin-right: 5px;
+    }
+  }
+</style>
