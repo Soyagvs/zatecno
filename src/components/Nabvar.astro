@@ -108,7 +108,7 @@
     const menuButton = document.getElementById("menuButton");
     const modal = document.getElementById("mobileModal");
     const closeModalButton = document.getElementById("closeModal");
-    const modalLinks = modal.querySelectorAll("a");
+    const modalLinks = modal?.querySelectorAll("a");
 
     function toggleModal() {
       if (modal) {
@@ -116,8 +116,8 @@
       }
     }
 
-    menuButton.addEventListener("click", toggleModal);
-    closeModalButton.addEventListener("click", toggleModal);
+    menuButton?.addEventListener("click", toggleModal);
+    closeModalButton?.addEventListener("click", toggleModal);
 
     // Cierra la modal al hacer clic fuera del contenido de la modal
     window.addEventListener("click", function (event) {
